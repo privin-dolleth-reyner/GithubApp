@@ -3,22 +3,19 @@ package `in`.privin.githubapp
 import `in`.privin.githubapp.data.GithubRepository
 import android.app.Application
 
-class App: Application() {
+class App : Application() {
 
     init {
         app = this
     }
 
-    companion object{
+    companion object {
         private var app: App? = null
-        fun getInstance() = app ?: App()
+        fun getInstance() = app ?: throw IllegalStateException("Application instance is null")
     }
 
     val githubRepository: GithubRepository by lazy {
         GithubRepository()
     }
-
-
-
 
 }
