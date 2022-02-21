@@ -1,6 +1,7 @@
 package `in`.privin.githubapp.ui
 
 import `in`.privin.githubapp.App
+import `in`.privin.githubapp.R
 import `in`.privin.githubapp.databinding.ActivityMainBinding
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 class HomeActivity : AppCompatActivity() {
 
     companion object {
-        private const val TAG = "MainActivity"
+        private const val TAG = "HomeActivity"
     }
 
     private val viewModel: HomeViewModel by lazy {
@@ -24,6 +25,7 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.tvRepo.text = applicationContext.getString(R.string.repo, "Test")
         observeData()
     }
 

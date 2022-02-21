@@ -2,4 +2,5 @@
     <string name="app_name">GithubApp</string>
     <string name="pr_description">by %1$s was closed on %2$s</string>
     <string name="pr_created">CreatedAt: %1$s</string>
+    <string name="repo">Repository : %1$s</string>
 </resources>
