@@ -18,5 +18,5 @@ object Retrofit {
 
 
 
-    fun create() = retrofit.create(GithubRemoteClient::class.java)
+    fun create(): GithubRemoteClient = retrofit.create(GithubRemoteClient::class.java)
 }

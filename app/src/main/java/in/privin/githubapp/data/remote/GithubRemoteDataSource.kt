@@ -8,14 +8,16 @@ class GithubRemoteDataSource {
         const val TAG = "GithubRemoteDataSource"
     }
 
-    private val githubRemoteClient: GithubRemoteClient = Retrofit.create()
+    private val githubRemoteClient: GithubRemoteClient by lazy {
+        Retrofit.create()
+    }
 
     fun getClosedPullRequests(): Result<List<PullRequest>> {
         val response = githubRemoteClient.getClosedPullRequests().execute()
-        if (response.isSuccessful) {
-            return Result.Success(response.body() as List<PullRequest>)
+        return if (response.isSuccessful) {
+            Result.Success(response.body() as List<PullRequest>)
         } else {
-            return Result.Error(response.code().toString())
+            Result.Error(response.code().toString())
         }
     }
 }
