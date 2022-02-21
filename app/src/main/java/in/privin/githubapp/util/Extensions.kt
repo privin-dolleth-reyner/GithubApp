@@ -10,5 +10,5 @@ fun ImageView.loadImage(url: String){
         .load(url)
         .circleCrop()
         .placeholder(R.drawable.ic_merged)
-        .into(this);
+        .into(this)
 }
