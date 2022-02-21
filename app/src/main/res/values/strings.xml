@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">GithubApp</string>
-    <string name="pr_description">by %1$s was closed on %2$s</string>
-    <string name="pr_created">CreatedAt: %1$s</string>
+    <string name="pr_description">%1$s closed on %2$s</string>
+    <string name="pr_created">Created: %1$s</string>
     <string name="repo">Repository : %1$s</string>
+    <string name="user_profile_img_content_description">userProfileImage</string>
+    <string name="closed_content_description">closed</string>
 </resources>

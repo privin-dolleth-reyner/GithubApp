@@ -11,7 +11,7 @@ object Util {
     fun getTimeFormat(s: String): String {
         return try {
             val oldFormat = "yyyy-mm-dd'T'hh:mm:ss'Z'"
-            val newFormat = "dd MMM yy hh:mm:ss"
+            val newFormat = "dd MMM yy"
             val sdf = SimpleDateFormat(oldFormat)
             val date = sdf.parse(s)!!
             sdf.applyPattern(newFormat)

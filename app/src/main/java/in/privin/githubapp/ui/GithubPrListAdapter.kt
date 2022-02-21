@@ -4,6 +4,7 @@ import `in`.privin.githubapp.R
 import `in`.privin.githubapp.data.model.PullRequest
 import `in`.privin.githubapp.databinding.ItemPrViewBinding
 import `in`.privin.githubapp.util.Util
+import `in`.privin.githubapp.util.loadImage
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -38,6 +39,7 @@ class GithubPrListAdapter constructor(
         val closedAt = Util.getTimeFormat(pr.closed_at)
         holder.binding.tvCreated.text = context.getString(R.string.pr_created, createdAt)
         holder.binding.tvClosed.text = context.getString(R.string.pr_description, pr.user.login, closedAt)
+        holder.binding.imgProfile.loadImage(pr.user.avatar_url)
     }
 
     override fun getItemCount(): Int {
