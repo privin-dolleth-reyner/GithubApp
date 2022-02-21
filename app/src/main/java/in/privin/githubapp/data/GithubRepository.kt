@@ -1,6 +1,7 @@
 package `in`.privin.githubapp.data
 
 import `in`.privin.githubapp.data.model.PullRequest
+import `in`.privin.githubapp.data.remote.GithubRemoteClient
 import `in`.privin.githubapp.data.remote.GithubRemoteDataSource
 import android.os.Handler
 import android.os.Looper
@@ -33,4 +34,8 @@ class GithubRepository {
         val result = githubRemoteDataSource.getClosedPullRequests()
         Handler(Looper.getMainLooper()).post { callback.invoke(result) }
     }
+
+    fun getRepoName() = GithubRemoteClient.REPO
+
+    fun getUserName() = GithubRemoteClient.USER
 }

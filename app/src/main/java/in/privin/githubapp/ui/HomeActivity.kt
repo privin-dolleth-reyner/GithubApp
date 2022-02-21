@@ -25,8 +25,8 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.tvRepo.text = applicationContext.getString(R.string.repo, "Test")
         observeData()
+        binding.tvRepo.text = applicationContext.getString(R.string.repo, viewModel.getRepoName())
     }
 
     private fun observeData() {

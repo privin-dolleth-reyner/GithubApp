@@ -9,8 +9,8 @@ import retrofit2.http.GET
 interface GithubRemoteClient {
 
     companion object {
-        private const val USER = "privin-dolleth-reyner"
-        private const val REPO = "Test"
+        const val REPO = "Test"
+        const val USER = "privin-dolleth-reyner"
         private const val PR_CLOSED_REQUEST = "repos/$USER/$REPO/pulls?state=closed"
     }
 

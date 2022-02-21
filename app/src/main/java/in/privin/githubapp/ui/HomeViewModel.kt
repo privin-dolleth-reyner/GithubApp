@@ -31,5 +31,9 @@ class HomeViewModel constructor(
         }
     }
 
+    fun getRepoName() = githubRepository.getRepoName()
+
+    fun getUserName() = githubRepository.getUserName()
+
 
 }
