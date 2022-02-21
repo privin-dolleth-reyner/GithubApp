@@ -1,5 +1,6 @@
 package `in`.privin.githubapp.data
 
+import `in`.privin.githubapp.data.model.PullRequest
 import `in`.privin.githubapp.data.remote.GithubRemoteDataSource
 import android.os.Handler
 import android.os.Looper
@@ -22,13 +23,13 @@ class GithubRepository {
     private val executor = ThreadPoolExecutor(
         NUM_OF_CORES,
         NUM_OF_CORES,
-        1,
+        1L,
         TimeUnit.SECONDS,
         workQueue
     )
 
 
-    fun getClosedPullRequests(callback: (result: Result)-> Unit) = executor.execute {
+    fun getClosedPullRequests(callback: (result: Result<List<PullRequest>>)-> Unit) = executor.execute {
         val result = githubRemoteDataSource.getClosedPullRequests()
         Handler(Looper.getMainLooper()).post { callback.invoke(result) }
     }

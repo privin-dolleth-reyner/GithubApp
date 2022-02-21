@@ -2,7 +2,7 @@ package `in`.privin.githubapp.data
 
 interface Model
 
-sealed class Result {
-    data class Success(val data: Any): Result()
-    data class Error(val error: String): Result()
+sealed class Result<out T> {
+    data class Success<out T>(val data: T): Result<T>()
+    data class Error(val error: String): Result<Nothing>()
 }
