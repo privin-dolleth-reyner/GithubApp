@@ -3,6 +3,7 @@ package `in`.privin.githubapp.ui
 import `in`.privin.githubapp.R
 import `in`.privin.githubapp.data.model.PullRequest
 import `in`.privin.githubapp.databinding.ItemPrViewBinding
+import `in`.privin.githubapp.util.Util
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -33,9 +34,10 @@ class GithubPrListAdapter constructor(
     override fun onBindViewHolder(holder: PrItemViewHolder, position: Int) {
         val pr = list[position]
         holder.binding.title.text = pr.title
-        val createdAt = pr.created_at
+        val createdAt = Util.getTimeFormat(pr.created_at)
+        val closedAt = Util.getTimeFormat(pr.closed_at)
         holder.binding.tvCreated.text = context.getString(R.string.pr_created, createdAt)
-        holder.binding.tvClosed.text = context.getString(R.string.pr_description, pr.user.login, pr.closed_at)
+        holder.binding.tvClosed.text = context.getString(R.string.pr_description, pr.user.login, closedAt)
     }
 
     override fun getItemCount(): Int {
